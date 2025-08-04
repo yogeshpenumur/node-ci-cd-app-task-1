@@ -31,3 +31,6 @@ jobs:
 
     - name: Push Docker Image
       run: docker push ${{ secrets.DOCKER_USERNAME }}/bookstore-node-app:latest
+      
+    - name: Log out from Docker Hub
+      run: docker logout
