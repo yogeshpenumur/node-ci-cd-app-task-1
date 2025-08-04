@@ -30,7 +30,7 @@ This is a simple Node.js-based bookstore web application. It serves static HTML 
    - Tested the container using `docker push ${{ secrets.DOCKER_USERNAME }}/bookstore-node-app:latest `.
 
 6. **Set Up GitHub Repository**  
-   - Created a GitHub repo and pushed all project files to the `master` branch.  
+   - Created a GitHub repo and pushed all project files to the `main` branch.  
    - Added a CI/CD workflow in `.github/workflows/main.yml`.
 
 7. **Configured GitHub Actions**  
@@ -48,5 +48,5 @@ This is a simple Node.js-based bookstore web application. It serves static HTML 
    - Used them for DockerHub login during CI/CD.
 
 9. **Tested the Full Pipeline**  
-   - Pushed final changes to `master`.  
+   - Pushed final changes to `main`.  
    - GitHub Actions ran automatically and pushed the image to DockerHub.
