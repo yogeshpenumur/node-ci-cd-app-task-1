@@ -1,72 +1,52 @@
-What I Did Step by Step
-Created a Node.js Project
+# 📦 Automate Code Deployment Using CI/CD Pipeline (GitHub Actions)
 
-Initialized a new Node.js project using npm init.
+## 📚 Bookstore Web Application
 
-Created an app.js file that starts a simple HTTP server on port 3000.
+This is a simple Node.js-based bookstore web application. It serves static HTML with book data fetched from a JSON file and includes a basic frontend. The app is containerized using Docker and uses GitHub Actions for CI/CD.
+## What I Did – Step by Step
 
-Added basic routing to serve a homepage and a JSON file with book data.
+1. **Created a Node.js Project**   
+   - Created `app.js` to start an HTTP server on port 3000.  
+   - Added routes to serve the homepage (`index.html`) and book data (`books.json`).
 
-Designed the Bookstore Website
+2. **Designed the Bookstore Website**  
+   - Created `index.html` to display a list of books.  
+   - Used JavaScript in the browser to call the `/books` endpoint.  
+   - Created `style.css` for basic page styling.
 
-Created an index.html file with a simple structure to show a list of books.
+3. **Added Sample Book Data**  
+   - Added a `books.json` file with sample data (title, author, price).  
+   - Modified the server to read and return this data at `/books`.
 
-Used JavaScript in the browser to fetch book data from the server using /books endpoint.
+4. **Tested Locally**  
+   - Ran `npm install` to install dependencies.  
+   - Started the app with `npm start`.  
+   - Opened `http://localhost:3000` to verify everything worked.
 
-Created a style.css file to apply basic styling to the webpage.
+5. **Dockerized the App**  
+   - Created a `Dockerfile` using Node.js 14 image.  
+   - Copied all files and installed packages inside the image.  
+   - Built the image with `docker build -t ${{ secrets.DOCKER_USERNAME }}/bookstore-node-app:latest .`  
+   - Tested the container using `docker push ${{ secrets.DOCKER_USERNAME }}/bookstore-node-app:latest `.
 
-Added Sample Book Data
+6. **Set Up GitHub Repository**  
+   - Created a GitHub repo and pushed all project files to the `master` branch.  
+   - Added a CI/CD workflow in `.github/workflows/main.yml`.
 
-Created a books.json file containing sample books with title, author, and price.
+7. **Configured GitHub Actions**  
+   - The workflow:
+     - Checks out the code  
+     - Sets up Node.js  
+     - Installs dependencies and runs tests  
+     - Builds the Docker image  
+     - Pushes the image to DockerHub
 
-Made sure the server reads and returns this data when /books is requested.
+8. **Added DockerHub Secrets**  
+   - Created two GitHub repository secrets:  
+     - `DOCKER_USERNAME`  
+     - `DOCKER_PASSWORD`  
+   - Used them for DockerHub login during CI/CD.
 
-Tested Locally
-
-Installed dependencies using npm install.
-
-Ran the server with npm start.
-
-Opened http://localhost:3000 to make sure the bookstore UI and data were working correctly.
-
-Dockerized the App
-
-Wrote a Dockerfile to containerize the app using Node.js 14 image.
-
-Made sure it copied all necessary files and ran npm install.
-
-Built the Docker image using docker build.
-
-Tested the Docker container with docker run -p 3000:3000.
-
-Set Up GitHub Repository
-
-Created a new GitHub repository and pushed the project files.
-
-Added .github/workflows/main.yml to define a CI/CD pipeline using GitHub Actions.
-
-Configured GitHub Actions for CI/CD
-
-Wrote a workflow file that:
-
-Checks out the code
-
-Sets up Node.js
-
-Installs dependencies and runs tests
-
-Builds a Docker image
-
-Pushes the image to DockerHub
-
-Added DockerHub credentials as GitHub Secrets:
-
-DOCKER_USERNAME
-
-DOCKER_PASSWORD
-
-Tested the Full Pipeline
-
-Committed and pushed changes to the master branch.
-
-Verified that GitHub Actions automatically built and pushed the Docker image to DockerHub
+9. **Tested the Full Pipeline**  
+   - Pushed final changes to `master`.  
+   - GitHub Actions ran automatically and pushed the image to DockerHub.
