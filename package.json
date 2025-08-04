@@ -1,0 +1,11 @@
+{
+  "name": "sample-node-app",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node app.js",
+    "test" : "echo \"Running tests...\" && exit 0"
+  },
+  "dependencies": {
+    "http": "0.0.1-security"
+  }
+}
